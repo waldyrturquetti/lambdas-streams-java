@@ -3,8 +3,6 @@ package org.example;
 import org.example.exercise1.Employee;
 import org.example.exercise1.EmployeeLoader;
 
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.List;
 import java.util.function.BiPredicate;
 
