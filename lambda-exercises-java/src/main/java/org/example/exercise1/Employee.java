@@ -4,6 +4,7 @@ package org.example.exercise1;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @Data
 @Builder
@@ -20,5 +21,10 @@ public class Employee {
         this.name = name;
         this.salary = salary;
         this.employmentDate = employmentDate;
+    }
+
+    public boolean isJuniorEmployee() {
+        LocalDate today = LocalDate.of(2022, 12, 25);
+        return Period.between(this.employmentDate, today).getYears() < 2;
     }
 }

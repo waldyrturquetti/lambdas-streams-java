@@ -32,7 +32,7 @@ public class App
         String fileName = "\\lambda-exercises-java\\src\\main\\java\\org\\example\\exercise1\\employees.txt";
         List<Employee> employeeList = EmployeeLoader.loadFromFile(System.getProperty("user.dir") + fileName);
 
-        BiPredicate<Employee, Employee> employeePairPredicate = (e1, e2) -> isJuniorEmployee(e1) && isJuniorEmployee(e2);
+        BiPredicate<Employee, Employee> employeePairPredicate = (e1, e2) -> e1.isJuniorEmployee() && e2.isJuniorEmployee();
 
         employeePairPredicate = employeePairPredicate.and((e1, e2) -> {
             double diff = e1.getSalary() / e2.getSalary();
@@ -53,10 +53,5 @@ public class App
                 }
             }
         }
-    }
-
-    private static boolean isJuniorEmployee(Employee employee) {
-        LocalDate today = LocalDate.of(2022, 12, 25);
-        return Period.between(employee.getEmploymentDate(), today).getYears() < 2;
     }
 }
